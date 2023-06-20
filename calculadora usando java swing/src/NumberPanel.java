@@ -7,12 +7,14 @@ import javax.swing.JTextField;
 
 public class NumberPanel extends JPanel implements ActionListener{
 
-    private JTextField txtText;
+    private JTextField txtText; //Fazendo o txt da classe do painel de botoes
 
     public NumberPanel(JTextField txtText){
         this.txtText = txtText;
 
-        setLayout(new GridLayout(4, 3));
+        setLayout(new GridLayout(4, 3)); //Setando o estilo da grade de botoes
+
+//Adicionando todos o botões de numerais 
 
         JButton btn1 = new JButton("1");
         btn1.addActionListener(this);
@@ -64,13 +66,13 @@ public class NumberPanel extends JPanel implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {//Actionperformed para deixar os botoes utilizaveis 
 
-        if(txtText.getText().length() == 10){
+        if(txtText.getText().length() == 10){  //If para limpar o texto se o usario digitar o numero com mais de 10 caracteres 
             return;
         }
 
-        JButton btn = (JButton) e.getSource();
+        JButton btn = (JButton) e.getSource(); 
         String number = btn.getText();
         txtText.setText(txtText.getText() + number);
     }
